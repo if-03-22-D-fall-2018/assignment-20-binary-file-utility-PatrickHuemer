@@ -3,20 +3,20 @@
 
 
 int main(int argc, char const *argv[]) {
-  int age = 0;
+  int age;
   int id;
   char firstName[64];
   char lastName[64];
+  FILE* fd = fopen("students.dat", "r+");
 
-  printf("Age: ");
-  scanf("%d", &age);
   printf("First Name: ");
   scanf("%s", firstName);
   printf("Last Name: ");
   scanf("%s", lastName);
-
-  FILE* fd = fopen("students.dat", "r");
+  printf("Age: ");
+  scanf("%d", &age);
   printf("checkpoint");
+
   fseek(fd, 0, SEEK_SET);
   fread(&id, sizeof(int), sizeof(int), fd);
   fclose(fd);
